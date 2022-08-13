@@ -2,9 +2,10 @@
 
 ---
 
-This is a library created to realise the idea for dynamic routing with Feign Clients in Spring.
+This is a library created to realise the idea of dynamic routing with Feign Clients in Spring.
 
 The idea is that with a configurable header a developer can hit a specific instance of a microservice in a chain of requests.
+This library forwards the header between microservices thus even if the targeted microservice is in a long chain the header will still reach it.
 
 The library is designed to be used only in testing environments.
 

@@ -5,13 +5,11 @@ import feign.RequestInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.event.EventListener;
 import org.springframework.util.StringUtils;
 
 @Configuration
@@ -23,11 +21,6 @@ public class SkywalkDynamicRoutingConfig {
 
     public SkywalkDynamicRoutingConfig(SkywalkDynamicRoutingConfigs skywalkDynamicRoutingConfigs) {
         this.skywalkDynamicRoutingConfigs = skywalkDynamicRoutingConfigs;
-    }
-
-    @EventListener(ApplicationEnvironmentPreparedEvent.class)
-    public void init(ApplicationEnvironmentPreparedEvent event) {
-        log.info("{}", event);
     }
 
     @Bean

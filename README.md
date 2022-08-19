@@ -28,7 +28,10 @@ Usage:
 
     }
    ```
-3. Configure Library
+3. Disable Library
+
+    ```skywalk.dynamic-routing.enabled = false```
+4. Configure Library
    1. Available configurations:
       - skywalk.dynamic-routing.header
         - ```Header name to use for dynamic routing```
@@ -43,7 +46,7 @@ Usage:
           
           If excludeRegistered is true (default) the request will be forwarded only to A (B is registered, therefor excluded), if excludeRegistered is false the request can be forwarded either to A or B
           ```
-4. Example FLow
+5. Example FLow
 
 <img src="./flow_diagram.png"/>
 

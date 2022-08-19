@@ -1,6 +1,11 @@
 {
   "properties": [
     {
+      "name": "skywalk.dynamic-routing.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or Disable Dynamic Routing"
+    },
+    {
       "name": "skywalk.dynamic-routing.header",
       "type": "java.lang.String",
       "description": "Header name to use for dynamic routing"

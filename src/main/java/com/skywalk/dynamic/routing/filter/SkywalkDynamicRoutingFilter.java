@@ -8,11 +8,9 @@ import java.io.IOException;
 
 import com.skywalk.dynamic.routing.config.SkywalkDynamicRoutingConfigs;
 import org.slf4j.MDC;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-@Component
 public class SkywalkDynamicRoutingFilter extends OncePerRequestFilter {
 
     private final SkywalkDynamicRoutingConfigs skywalkDynamicRoutingConfigs;

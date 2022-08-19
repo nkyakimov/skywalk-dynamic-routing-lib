@@ -16,6 +16,10 @@ public class SkywalkDynamicRoutingEventListener implements ApplicationListener<A
 
     public void onApplicationEvent(ApplicationEnvironmentPreparedEvent event) {
         ConfigurableEnvironment environment = event.getEnvironment();
+        if (Boolean.FALSE.equals(environment.getProperty("skywalk.dynamic-routing.enabled", Boolean.class))) {
+            return;
+        }
+
         String dynamicRoutingHeader = environment.getProperty("skywalk.dynamic-routing.header");
         String dynamicRoutingValue = environment.getProperty("skywalk.dynamic-routing.value");
 
@@ -26,8 +30,6 @@ public class SkywalkDynamicRoutingEventListener implements ApplicationListener<A
         Properties eurekaMetadataProp = new Properties();
         eurekaMetadataProp.put("eureka.instance.metadata-map." + dynamicRoutingHeader, dynamicRoutingValue);
         environment.getPropertySources().addFirst(new PropertiesPropertySource("skywalkProps", eurekaMetadataProp));
-
-        log.info("Registered for dynamic routing: Header {}, Value {}", dynamicRoutingHeader, dynamicRoutingValue);
     }
 
 }
